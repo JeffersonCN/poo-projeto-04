@@ -6,6 +6,7 @@
 package br.com.fatecpg.models;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -146,6 +147,11 @@ public class Fornecedor {
             cnpj = (cnpj.substring(0, 2) + "." + cnpj.substring(2, 5) + "."
                     + cnpj.substring(5, 8) + "." + cnpj.substring(8, 12) + "-"
                     + cnpj.substring(12, 14));
+            
+            Matcher matcher = pattern.matcher(email);
+            if(!matcher.matches()){
+                throw new Exception("E-mail Inválido");
+            }
 
             this.nome = nome;
             this.razaoSocial = razaoSocial;
