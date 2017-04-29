@@ -6,7 +6,6 @@
 package br.com.fatecpg.models;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,7 +34,7 @@ public class Cliente {
     public ArrayList<Cliente> listar() {
         return lista;
     }
-
+    
     public int adicionar(Cliente cliente) {
         try {
             lista.add(cliente);
