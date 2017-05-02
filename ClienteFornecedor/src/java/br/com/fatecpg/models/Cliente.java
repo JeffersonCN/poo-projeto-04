@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  */
 public class Cliente {
 
-    private static ArrayList<Cliente> lista;
+    private static ArrayList<Cliente> lista = new ArrayList<Cliente>();
 
     private int id;
     private String nome;
