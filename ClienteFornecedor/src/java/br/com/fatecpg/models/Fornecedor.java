@@ -31,11 +31,11 @@ public class Fornecedor {
 
     private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN, Pattern.CASE_INSENSITIVE);
 
-    public ArrayList<Fornecedor> listar() {
+    public static ArrayList<Fornecedor> listar() {
         return lista;
     }
 
-    public int adicionar(Fornecedor fornecedor) {
+    public static int adicionar(Fornecedor fornecedor) {
         try {
             lista.add(fornecedor);
             return fornecedor.id;
@@ -45,7 +45,7 @@ public class Fornecedor {
         }
     }
 
-    public Fornecedor fornecedorById(int id) {
+    public static Fornecedor fornecedorById(int id) {
         try {
             for (Fornecedor fornecedor : lista) {
                 if (fornecedor.id == id) {
@@ -59,7 +59,7 @@ public class Fornecedor {
         return null;
     }
 
-    public boolean editar(Fornecedor dados, int id) {
+    public static boolean editar(Fornecedor dados, int id) {
         try {
             for (Fornecedor fornecedor : lista) {
                 if (fornecedor.id == id) {
@@ -74,7 +74,7 @@ public class Fornecedor {
         }
     }
 
-    public boolean excluir(int id) {
+    public static boolean excluir(int id) {
         try {
             for (Fornecedor fornecedor : lista) {
                 if (fornecedor.id == id) {
