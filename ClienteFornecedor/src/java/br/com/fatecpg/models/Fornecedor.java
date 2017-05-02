@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  */
 public class Fornecedor {
 
-    private static ArrayList<Fornecedor> lista;
+    private static ArrayList<Fornecedor> lista = new ArrayList<Fornecedor>();
 
     private int id;
     private String nome;
