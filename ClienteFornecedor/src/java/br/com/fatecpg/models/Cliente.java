@@ -31,11 +31,11 @@ public class Cliente {
     
     private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN, Pattern.CASE_INSENSITIVE);
 
-    public ArrayList<Cliente> listar() {
+    public static ArrayList<Cliente> listar() {
         return lista;
     }
     
-    public int adicionar(Cliente cliente) {
+    public static int adicionar(Cliente cliente) {
         try {
             lista.add(cliente);
             return cliente.id;
@@ -45,7 +45,7 @@ public class Cliente {
         }
     }
 
-    public Cliente clienteById(int id) {
+    public static Cliente clienteById(int id) {
         try {
             for (Cliente cliente : lista) {
                 if (cliente.id == id) {
@@ -59,7 +59,7 @@ public class Cliente {
         return null;
     }
 
-    public boolean editar(Cliente dados, int id) {
+    public static boolean editar(Cliente dados, int id) {
         try {
             for (Cliente cliente : lista) {
                 if (cliente.id == id) {
@@ -74,7 +74,7 @@ public class Cliente {
         }
     }
 
-    public boolean excluir(int id) {
+    public static boolean excluir(int id) {
         try {
             for (Cliente cliente : lista) {
                 if (cliente.id == id) {
