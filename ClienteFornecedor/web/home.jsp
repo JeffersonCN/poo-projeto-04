@@ -35,8 +35,8 @@
                             <hr>
                             <div class="row featurette">
                                 <div class="col-md-7 col-md-push-5">
-                                    <h2 class="featurette" style="padding-left: 43px">Victor Schleumer</h2>
-                                    <p class="lead" style="padding-left: 43px;">Responsável pela criação das Classes utilizadas.</p>
+                                    <h2 class="featurette" >Victor Schleumer</h2>
+                                    <p class="lead">Responsável pela criação das Classes utilizadas.</p>
                                 </div>
                                 <div class="col-md-5 col-md-pull-7">
                                     <img src="libs/img/victor.jpg" alt="Generic placeholder image">
@@ -59,8 +59,8 @@
 
                             <div class="row featurette">
                                 <div class="col-md-7 col-md-push-5">
-                                    <h2 class="featurette" style="padding-left: 43px;">Jefferson Nascimento</h2>
-                                    <p class="lead" style="padding-left: 43px;">Responsável pela criação da página de registro dos fornecedores.</p>
+                                    <h2 class="featurette">Jefferson Nascimento</h2>
+                                    <p class="lead">Responsável pela criação da página de registro dos fornecedores.</p>
                                 </div>
                                 <div class="col-md-5 col-md-pull-7">
                                     <img src="libs/img/jefferson.jpg" alt="Generic placeholder image">

@@ -11,7 +11,7 @@
 
             <div class="site-wrapper-inner">
 
-                <div class="cover-container">
+                <div class="container">
                     <div class="navbar-static-top navbar-collapse">
                         <div class="inner">
                             <h3 class="masthead-brand">Grupo 02</h3>
@@ -19,7 +19,7 @@
                                 <ul class="nav masthead-nav ">
                                     <li><a href="home.jsp">Home</a></li>
                                     <li><a href="cliente.jsp">Clientes</a></li>
-                                    <li><a href="fornecedores.jsp">Fornecedores</a></li>
+                                    <li><a href="fornecedor.jsp">Fornecedores</a></li>
                                 </ul>
                             </nav>
                         </div>

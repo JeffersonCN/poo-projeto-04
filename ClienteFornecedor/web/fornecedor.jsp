@@ -11,13 +11,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gerenciar Fornecedores</title>
-        <link rel="stylesheet" href="libs/css/bootstrap.css"/>
-        <link rel="stylesheet" href="libs/css/bootstrap-theme.css"/>
+        <link rel="icon" href="libs/img/icon.jpg">
+        <link href="libs/css/bootstrap.min.css" rel="stylesheet">
+        <link href="libs/css/styles.css" rel="stylesheet">
     </head>
     <body>
+        <%@ include file="WEB-INF/header.jspf" %>
+        <hr>
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <h1>Fornecedores</h1>
                     <%
                         Fornecedor fornecedorEncontrado = null;
@@ -93,8 +96,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <hr>
                     <h1>Listagem</h1>
-                    <table class="table table-striped">
+                    <table class="table table-striped table-responsive table-bordered">
                         <tr>
                             <th>#</th>
                             <th>Nome</th>
@@ -142,5 +146,7 @@
                 </div>
             </div>
         </div>
+                    <hr>
+    <%@ include file="WEB-INF/footer.jspf" %>                
     </body>
 </html>
