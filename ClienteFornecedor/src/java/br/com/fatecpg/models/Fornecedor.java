@@ -6,8 +6,6 @@
 package br.com.fatecpg.models;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  *
@@ -24,12 +22,6 @@ public class Fornecedor {
     private String email;
     private String telefone;
     private String endereco;
-
-    private static final String EMAIL_PATTERN
-            = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-    private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN, Pattern.CASE_INSENSITIVE);
 
     public static ArrayList<Fornecedor> listar() {
         return lista;
@@ -91,68 +83,7 @@ public class Fornecedor {
 
     public Fornecedor(String nome, String razaoSocial, String cnpj, String email, String telefone, String endereco) {
         try {
-
-            if (cnpj.equals("00000000000000") || cnpj.equals("11111111111111")
-                    || cnpj.equals("22222222222222") || cnpj.equals("33333333333333")
-                    || cnpj.equals("44444444444444") || cnpj.equals("55555555555555")
-                    || cnpj.equals("66666666666666") || cnpj.equals("77777777777777")
-                    || cnpj.equals("88888888888888") || cnpj.equals("99999999999999")
-                    || (cnpj.length() != 14)) {
-                throw new Exception("CNPJ Inválido");
-            }
-
-            char dig13, dig14;
-            int sm, i, r, num, peso;
-
-            sm = 0;
-            peso = 2;
-            for (i = 11; i >= 0; i--) {
-                num = (int) (cnpj.charAt(i) - 48);
-                sm = sm + (num * peso);
-                peso = peso + 1;
-                if (peso == 10) {
-                    peso = 2;
-                }
-            }
-
-            r = sm % 11;
-            if ((r == 0) || (r == 1)) {
-                dig13 = '0';
-            } else {
-                dig13 = (char) ((11 - r) + 48);
-            }
-
-            sm = 0;
-            peso = 2;
-            for (i = 12; i >= 0; i--) {
-                num = (int) (cnpj.charAt(i) - 48);
-                sm = sm + (num * peso);
-                peso = peso + 1;
-                if (peso == 10) {
-                    peso = 2;
-                }
-            }
-
-            r = sm % 11;
-            if ((r == 0) || (r == 1)) {
-                dig14 = '0';
-            } else {
-                dig14 = (char) ((11 - r) + 48);
-            }
-
-            if (!(dig13 == cnpj.charAt(12)) && (dig14 == cnpj.charAt(13))) {
-                throw new Exception("CNPJ Inválido");
-            }
-
-            cnpj = (cnpj.substring(0, 2) + "." + cnpj.substring(2, 5) + "."
-                    + cnpj.substring(5, 8) + "." + cnpj.substring(8, 12) + "-"
-                    + cnpj.substring(12, 14));
-            
-            Matcher matcher = pattern.matcher(email);
-            if(!matcher.matches()){
-                throw new Exception("E-mail Inválido");
-            }
-
+            this.id = (int)(Math.random() * 10000);
             this.nome = nome;
             this.razaoSocial = razaoSocial;
             this.cnpj = cnpj;
