@@ -102,8 +102,8 @@
                         <tr>
                             <th>#</th>
                             <th>Nome</th>
-                            <th>Razão Social</th>
-                            <th>CNPJ</th>
+                            <th>RG</th>
+                            <th>CPF</th>
                             <th>E-mail</th>
                             <th>Telefone</th>
                             <th>Endereço</th>
