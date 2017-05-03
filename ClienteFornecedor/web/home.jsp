@@ -8,10 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="icon" href="libs/img/icon.jpg">
-        <link href="libs/css/bootstrap.min.css" rel="stylesheet">
-        <link href="libs/css/styles.css" rel="stylesheet">
+        <%@ include file="WEB-INF/head.jspf"%>
         <title>Home</title>
     </head>
     <body>
@@ -83,9 +80,10 @@
                             </div>
                         </div>
                         <hr>
-                        <%@ include file="WEB-INF/footer.jspf" %>                     
+                        <%@ include file="WEB-INF/footer.jspf" %> 
                         </div>
                 </div>
             </div>
+                        <%@ include file="WEB-INF/scripts.jspf" %>
     </body>
 </html>
