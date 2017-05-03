@@ -9,11 +9,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gerenciar Fornecedores</title>
-        <link rel="icon" href="libs/img/icon.jpg">
-        <link href="libs/css/bootstrap.min.css" rel="stylesheet">
-        <link href="libs/css/styles.css" rel="stylesheet">
+        <%@ include file="WEB-INF/head.jspf"%>
     </head>
     <body>
         <%@ include file="WEB-INF/header.jspf" %>
@@ -148,9 +145,6 @@
         </div>
         <hr>
         <%@ include file="WEB-INF/footer.jspf" %>       
-        <script type="text/javascript" src="libs/js/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="libs/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="libs/js/jquery.mask.js"></script>
-        <script type="text/javascript" src="js/masks.js"></script>
+        <%@ include file="WEB-INF/scripts.jspf" %>   
     </body>
 </html>
