@@ -15,6 +15,9 @@
         <title>Home</title>
     </head>
     <body>
+            <div class="site-wrapper">
+                <div class="site-wrapper-inner">
+
                     <%@ include file="WEB-INF/header.jspf" %>
                     <hr>
                     <div class="inner cover">
@@ -81,5 +84,8 @@
                         </div>
                         <hr>
                         <%@ include file="WEB-INF/footer.jspf" %>                     
+                        </div>
+                </div>
+            </div>
     </body>
 </html>
