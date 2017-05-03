@@ -19,6 +19,21 @@
             <div class="row">
                 <div class="col-md-8">
                     <h1>Fornecedores</h1>
+                    <%
+                        Fornecedor fornecedorEncontrado = null;
+                        if(request.getParameter("adicionar") != null) {
+                            String nome = request.getParameter("nome");
+                            String razaoSocial = request.getParameter("razao_social");
+                            String cnpj = request.getParameter("cnpj");
+                            String email = request.getParameter("email");
+                            String telefone = request.getParameter("telefone");
+                            String endereco = request.getParameter("endereco");
+                            
+                            Fornecedor f = new Fornecedor(nome, razaoSocial, cnpj, email, telefone, endereco);
+                            
+                            Fornecedor.adicionar(f);                            
+                        }
+                    %>
                     <form class="form" action="" method="POST">
                         <div class="row">
                             <div class="col-md-6">
@@ -54,9 +69,9 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <input class="btn btn-primary pull-right" type="submit" name="adicionar" value="Adicionar">
-                        
+
                     </form>
                 </div>
             </div>
@@ -74,6 +89,39 @@
                             <th>Endereço</th>
                             <th>Ação</th>
                         </tr>
+
+                        <%
+                            for(Fornecedor fornecedor : Fornecedor.getLista()) {
+                        %>
+                        <tr>
+                            <td><%=fornecedor.getId()%></td>
+                            <td><%=fornecedor.getNome()%></td>
+                            <td><%=fornecedor.getRazaoSocial()%></td>
+                            <td><%=fornecedor.getCnpj()%></td>
+                            <td><%=fornecedor.getEmail()%></td>
+                            <td><%=fornecedor.getTelefone()%></td>
+                            <td><%=fornecedor.getEndereco()%></td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <form action="" method="POST">
+                                            <input type="number" name="id" value="<%=fornecedor.getId()%>" hidden>
+                                            <input class="btn btn-warning btn-sm" type="submit" name="editar" value="Editar">
+                                        </form>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <form action="" method="POST">
+                                            <input type="number" name="id" value="<%=fornecedor.getId()%>" hidden>
+                                            <input class="btn btn-danger btn-sm" type="submit" name="excluir" value="Excluir">
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                            </td>
+                        </tr>
+
+                        <%}%>
                     </table>
                 </div>
             </div>
