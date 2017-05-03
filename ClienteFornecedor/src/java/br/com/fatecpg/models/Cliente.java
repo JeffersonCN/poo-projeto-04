@@ -28,13 +28,13 @@ public class Cliente {
     private static final String EMAIL_PATTERN
             = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-    
+
     private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN, Pattern.CASE_INSENSITIVE);
 
     public static ArrayList<Cliente> listar() {
         return lista;
     }
-    
+
     public static int adicionar(Cliente cliente) {
         try {
             lista.add(cliente);
@@ -90,6 +90,7 @@ public class Cliente {
     }
 
     public Cliente(String nome, String cpf, String rg, String email, String telefone, String endereco) {
+        boolean erro = false;
         try {
             if (cpf.equals("00000000000") || cpf.equals("11111111111")
                     || cpf.equals("22222222222") || cpf.equals("33333333333")
@@ -97,6 +98,7 @@ public class Cliente {
                     || cpf.equals("66666666666") || cpf.equals("77777777777")
                     || cpf.equals("88888888888") || cpf.equals("99999999999")
                     || (cpf.length() != 11)) {
+                erro = true;
                 throw new Exception("CPF Inválido");
             }
 
@@ -133,24 +135,28 @@ public class Cliente {
             }
 
             if (!(dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10))) {
+                erro = true;
                 throw new Exception("CPF Inválido");
             }
 
             cpf = (cpf.substring(0, 3) + "." + cpf.substring(3, 6) + "."
                     + cpf.substring(6, 9) + "-" + cpf.substring(9, 11));
-            
+
             Matcher matcher = pattern.matcher(email);
-            if(!matcher.matches()){
+            if (!matcher.matches()) {
+                erro = true;
                 throw new Exception("E-mail Inválido");
             }
-            
-            this.id = lista.size() + 1;
-            this.nome = nome;
-            this.cpf = cpf;
-            this.rg = rg;
-            this.email = email;
-            this.telefone = telefone;
-            this.endereco = endereco;
+            if (!erro) {
+                this.id = lista.size() + 1;
+                this.nome = nome;
+                this.cpf = cpf;
+                this.rg = rg;
+                this.email = email;
+                this.telefone = telefone;
+                this.endereco = endereco;
+            }
+
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
