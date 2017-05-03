@@ -10,9 +10,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="icon" href="libs/img/icon.jpg">
+        <link href="libs/css/bootstrap.min.css" rel="stylesheet">
+        <link href="libs/css/styles.css" rel="stylesheet">
+        <title>Registrar Cliente</title>
     </head>
     <body>
+        <%@ include file="WEB-INF/header.jspf" %>
+        <hr>
         <h1>Cliente</h1>
         
         <form>
@@ -101,5 +106,7 @@
                 <%}%>
             </table>
         </div>
+            <hr>
+            <%@ include file="WEB-INF/footer.jspf" %>
     </body>
 </html>

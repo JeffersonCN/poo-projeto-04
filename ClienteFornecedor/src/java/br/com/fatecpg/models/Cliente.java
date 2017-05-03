@@ -31,6 +31,16 @@ public class Cliente {
 
     private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN, Pattern.CASE_INSENSITIVE);
 
+    public boolean validar() {
+        Cliente cliente = this;
+        return !((cliente.getCpf().isEmpty() || cliente.getCpf() == null)
+                || (cliente.getEmail().isEmpty() || cliente.getEmail() == null)
+                || (cliente.getEndereco().isEmpty() || cliente.getEndereco() == null)
+                || (cliente.getNome().isEmpty() || cliente.getEndereco() == null)
+                || (cliente.getRg().isEmpty() || cliente.getRg() == null)
+                || (cliente.getTelefone().isEmpty() || cliente.getTelefone() == null));
+    }
+
     public static ArrayList<Cliente> listar() {
         return lista;
     }
