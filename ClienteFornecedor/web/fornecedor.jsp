@@ -40,6 +40,9 @@
                         } else if(request.getParameter("editar") != null) {
                             short id = Short.parseShort(request.getParameter("id"));
                             fornecedorEncontrado = Fornecedor.fornecedorById(id);
+                        } else if(request.getParameter("excluir") != null) {
+                            short id = Short.parseShort(request.getParameter("id"));
+                            Fornecedor.excluir(id);
                         }
                     %>
                     <form class="form" action="" method="POST">
