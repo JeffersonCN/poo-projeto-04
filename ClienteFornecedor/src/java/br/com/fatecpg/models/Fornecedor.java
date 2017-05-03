@@ -55,7 +55,9 @@ public class Fornecedor {
         try {
             for (Fornecedor fornecedor : lista) {
                 if (fornecedor.id == id) {
-                    fornecedor = dados;
+                    int index = lista.indexOf(fornecedor);
+                    dados.setId(id);
+                    lista.set(index, dados);
                     return true;
                 }
             }
