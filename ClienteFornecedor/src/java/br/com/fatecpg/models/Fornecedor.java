@@ -130,6 +130,7 @@ public class Fornecedor {
     }
 
     public String getCnpj() {
+        
         return cnpj;
     }
 
