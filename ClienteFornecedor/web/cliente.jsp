@@ -117,9 +117,9 @@
                             <td><%=cliente.getId()%></td>
                             <td><%=cliente.getNome()%></td>
                             <td><%=cliente.getRg()%></td>
-                            <td><%=cliente.getCpf()%></td>
+                            <td class="table-cpf"><%=cliente.getCpf()%></td>
                             <td><%=cliente.getEmail()%></td>
-                            <td><%=cliente.getTelefone()%></td>
+                            <td class="table-telefone"><%=cliente.getTelefone()%></td>
                             <td><%=cliente.getEndereco()%></td>
                             <td>
                                 <div class="row">
@@ -147,6 +147,10 @@
             </div>
         </div>
                     <hr>
-    <%@ include file="WEB-INF/footer.jspf" %>                
+    <%@ include file="WEB-INF/footer.jspf" %>
+    <script type="text/javascript" src="libs/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="libs/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/js/jquery.mask.js"></script>
+    <script type="text/javascript" src="js/masks.js"></script>
     </body>
 </html>
