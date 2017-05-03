@@ -21,7 +21,7 @@
                     <h1>Fornecedores</h1>
                     <%
                         Fornecedor fornecedorEncontrado = null;
-                        if(request.getParameter("adicionar") != null) {
+                        if(request.getParameter("adicionar") != null || request.getParameter("salvar") != null) {
                             String nome = request.getParameter("nome");
                             String razaoSocial = request.getParameter("razao_social");
                             String cnpj = request.getParameter("cnpj");
@@ -31,46 +31,59 @@
                             
                             Fornecedor f = new Fornecedor(nome, razaoSocial, cnpj, email, telefone, endereco);
                             
-                            Fornecedor.adicionar(f);                            
+                            if (request.getParameter("adicionar") != null) {
+                                Fornecedor.adicionar(f);
+                            } else {
+                                short id = Short.parseShort(request.getParameter("id"));
+                                Fornecedor.editar(f, id);
+                            }                            
+                        } else if(request.getParameter("editar") != null) {
+                            short id = Short.parseShort(request.getParameter("id"));
+                            fornecedorEncontrado = Fornecedor.fornecedorById(id);
                         }
                     %>
                     <form class="form" action="" method="POST">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome">
+                                    <input class="form-control" type="text" name="nome" id="nome" placeholder="Nome" <% if(fornecedorEncontrado != null) {%> value="<%=fornecedorEncontrado.getNome()%>" <%}%>>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" name="razao_social" id="razao-social" placeholder="Razão Social">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="cnpj" id="cnpj" maxlength="14" placeholder="CNPJ">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input class="form-control" type="email" name="email" id="email" placeholder="E-mail">
+                                    <input class="form-control" type="text" name="razao_social" id="razao-social" placeholder="Razão Social" <% if(fornecedorEncontrado != null) {%> value="<%=fornecedorEncontrado.getRazaoSocial()%>" <%}%>>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" name="telefone" id="telefone" placeholder="Telefone">
+                                    <input class="form-control" type="text" name="cnpj" id="cnpj" maxlength="14" placeholder="CNPJ" <% if(fornecedorEncontrado != null) {%> value="<%=fornecedorEncontrado.getCnpj()%>" <%}%>>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" name="endereco" id="endereco"  placeholder="Endereço">
+                                    <input class="form-control" type="email" name="email" id="email" placeholder="E-mail" <% if(fornecedorEncontrado != null) {%> value="<%=fornecedorEncontrado.getEmail()%>" <%}%>>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="telefone" id="telefone" placeholder="Telefone" <% if(fornecedorEncontrado != null) {%> value="<%=fornecedorEncontrado.getTelefone()%>" <%}%>>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="endereco" id="endereco"  placeholder="Endereço" <% if(fornecedorEncontrado != null) {%> value="<%=fornecedorEncontrado.getEndereco()%>" <%}%>>
                                 </div>
                             </div>
                         </div>
-
-                        <input class="btn btn-primary pull-right" type="submit" name="adicionar" value="Adicionar">
+                        
+                        <% if(fornecedorEncontrado == null) {%>
+                            <input class="btn btn-primary pull-right" type="submit" name="adicionar" value="Adicionar">
+                        <%} else {%>
+                            <input type="number" name="id" value="<%=fornecedorEncontrado.getId()%>" hidden>
+                            <input class="btn btn-primary pull-right" type="submit" name="salvar" value="Salvar">
+                        <%}%>
 
                     </form>
                 </div>
